@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+    <typeAliases>
+        <typeAlias type="com.aaa.entity.UserInfo" alias="userinfo"></typeAlias>
+    </typeAliases>
+
+    <environments default="development">
+        <environment id="development">
+            <!--使用mybatis自己管理事务，就写jdbc-->
+            <transactionManager type="JDBC"/>
+            <dataSource type="POOLED">
+              <!--  <property name="driver" value="oracle.jdbc.OracleDriver"/>
+                <property name="url" value="jdbc:oracle:thin:@localhost:1521:orcl"/>
+                <property name="username" value="scott"/>
+                <property name="password" value="tiger"/>-->
+                <property name="driver" value="com.mysql.jdbc.Driver"/>
+                <property name="url" value="jdbc:mysql://localhost:3306/aaa"/>
+                <property name="username" value="root"/>
+                <property name="password" value="root"/>
+            </dataSource>
+        </environment>
+    </environments>
+
+    <mappers>
+        <mapper resource="mapper\UserInfoMapper.xml"/>
+    </mappers>
+</configuration>
